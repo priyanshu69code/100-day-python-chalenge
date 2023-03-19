@@ -1,0 +1,1 @@
+print(f'Your cards are {face} and {values}')

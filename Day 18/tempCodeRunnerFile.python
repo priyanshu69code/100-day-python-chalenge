@@ -1,0 +1,17 @@
+def romanToInt(s):
+    """
+    :type s: str
+    :rtype: int
+    """
+    romannum = {"I":1,"V":5,"X":10,"L":50,"C":100,"D":500,"M":1000}
+    intnum = 0
+    if len(s) == 1:
+        return romannum[s[0]]  
+    elif romannum[s[0]] > romannum[s[1]]:
+        return (intnum + romannum[s[0]]) + romanToInt(s[1:])
+    elif romannum[s[0]] < romannum[s[1]]:
+        return (intnum + (romannum[s[1]] - romannum[s[0]])) + romanToInt(s[2:])
+    else:
+        return 0
+
+romanToInt("MCMXCIV")
